@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  Stepview.h
 //  StepView
 //
 //  Created by Carson Capper on 6/23/16.
@@ -7,11 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Stepview.h"
 
-
-@interface ViewController : UIViewController
-
+@interface Stepview : UIViewController
 
 @end
-
