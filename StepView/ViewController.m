@@ -14,16 +14,13 @@
 
 @implementation ViewController
 
--(void) switchViewValueChanged:(BOOL) ON
-{
-    
-}
+
 
 - (void)viewDidLoad {
    
     [super viewDidLoad];
     Stepview *stepview = [[Stepview alloc]
-        initWithFrame:CGRectMake(50, 200, 100, 100)];
+        initWithFrame:CGRectMake(50, 200, 300, 300)];
 
     stepview.delegate = self;
     [self.view addSubview:stepview];
@@ -32,7 +29,9 @@
 
 }
                           
--(void) switchViewDidValueChanged:(BOOL)on {
+-(void) stepViewValueChanged:(int)count {
+    NSString *countValue = [[NSString alloc] initWithFormat:@"%d", count];
+    NSLog(countValue);
 }
 
 - (void)didReceiveMemoryWarning {

@@ -56,6 +56,10 @@
     count--;
     NSString *myLabelFinal = [[NSString alloc] initWithFormat:@"%d", count];
     self.myLabel.text = myLabelFinal;
+    [self.delegate stepViewValueChanged:(int) count];
+    
+    NSLog(@"button Pressed");
+
 }
 
 -(void) button2Pressed:(id) sender {
@@ -63,7 +67,9 @@
     count++;
     NSString *myLabelFinal = [[NSString alloc] initWithFormat:@"%d", count];
     self.myLabel.text = myLabelFinal;
+    [self.delegate stepViewValueChanged:(int) count];
     
+    NSLog(@"button Pressed");
 }
 
 @end
