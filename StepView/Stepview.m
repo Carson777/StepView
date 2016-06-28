@@ -8,32 +8,62 @@
 
 #import "Stepview.h"
 
-@interface Stepview ()
-
-@end
 
 @implementation Stepview
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-   
+-(instancetype) initWithFrame: (CGRect)frame{
     
-    // Do any additional setup after loading the view.
+    self= [super initWithFrame:frame];
+    [self setup];
+    return self;
+}
+-(instancetype) init {
+    
+    self = [super init];
+    [self setup];
+    return self;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+-(void) setup {
+    
+    count = 0;
+    
+    self.myLabel = [[UILabel alloc] init];
+    self.myLabel.text = @"0";
+    self.myLabel.textAlignment = NSTextAlignmentCenter;
+    self.myLabel.backgroundColor= [UIColor redColor];
+    self.myLabel.frame = CGRectMake(110, 0, 100, 100);
+    [self addSubview:self.myLabel];
+    
+    self.myButton1 = [[UIButton alloc] init];
+    [self.myButton1 setTitle:@"-" forState:UIControlStateNormal];
+    self.myButton1.backgroundColor = [UIColor blueColor];
+    self.myButton1.frame = CGRectMake(0, 0, 100, 100);
+    [self.myButton1 addTarget:self action:@selector(button1Pressed:) forControlEvents:UIControlEventTouchUpInside];
+    [self addSubview:self.myButton1];
+    
+    self.myButton2= [[UIButton alloc] init];
+    [self.myButton2 setTitle: @"+" forState:UIControlStateNormal];
+    self.myButton2.backgroundColor = [UIColor blueColor];
+    self.myButton2.frame = CGRectMake(220, 0, 100, 100);
+    [self.myButton2 addTarget:self action:@selector(button2Pressed:) forControlEvents:UIControlEventTouchUpInside];
+    [self addSubview:self.myButton2];
+    
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(void) button1Pressed:(id) sender {
+    
+    count--;
+    NSString *myLabelFinal = [[NSString alloc] initWithFormat:@"%d", count];
+    self.myLabel.text = myLabelFinal;
 }
-*/
+
+-(void) button2Pressed:(id) sender {
+    
+    count++;
+    NSString *myLabelFinal = [[NSString alloc] initWithFormat:@"%d", count];
+    self.myLabel.text = myLabelFinal;
+    
+}
 
 @end

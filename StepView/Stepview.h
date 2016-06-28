@@ -8,6 +8,20 @@
 
 #import <UIKit/UIKit.h>
 
-@interface Stepview : UIViewController
 
+@protocol SwitchViewDelegate
+
+-(void) switchViewValueChanged:(BOOL) on;
+
+
+@end
+@interface Stepview : UIView
+{
+    int count;
+}
+
+@property (nonatomic,weak) id<SwitchViewDelegate> delegate;
+@property (nonatomic,strong) UILabel *myLabel;
+@property (nonatomic,strong) UIButton *myButton1;
+@property (nonatomic,strong) UIButton *myButton2;
 @end

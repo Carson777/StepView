@@ -10,8 +10,7 @@
 #import "Stepview.h"
 
 
-@interface ViewController : UIViewController
-
+@interface ViewController : UIViewController<SwitchViewDelegate>
 
 @end
 
